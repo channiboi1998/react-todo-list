@@ -1,0 +1,22 @@
+.app-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+.grid-center {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+}
+
+.box-filter {
+    justify-content: space-between;
+}
+
+.fullHeight {
+    height: 100%;
+}
+
+.division {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
