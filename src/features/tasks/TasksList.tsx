@@ -4,7 +4,12 @@ import { useQuery } from 'react-query';
 import { getTasks } from '../../api/api';
 import TaskInterface from '../../interfaces/TaskInterface';
 
-const TasksList = () => {
+const TasksList = (props: any) => {
+
+    const filters = {
+        selectedFilter: props.selectedFilter,
+        searchValue: props.searchValue,
+    }
 
     const {
         isLoading,
@@ -12,7 +17,7 @@ const TasksList = () => {
         isError,
         error,
         data: tasks
-    } = useQuery('tasks', getTasks);
+    } = useQuery(['tasks', filters], () => getTasks(filters));
 
     let content;
 

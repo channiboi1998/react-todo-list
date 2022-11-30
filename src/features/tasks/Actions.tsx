@@ -8,12 +8,12 @@ const Actions = (props: any) => {
     return (
         <Grid className="grid-center" item lg={2} md={6} xs={6}>
             <Tooltip title="Add Task">
-                <IconButton onClick={() => props.changeForm("addTask")}>
+                <IconButton onClick={() => props.setSelectedForm("addTask")}>
                     <AddIcon />
                 </IconButton>
             </Tooltip>
             <Tooltip title="Search Task">
-                <IconButton onClick={() => props.changeForm("searchTask")}>
+                <IconButton onClick={() => props.setSelectedForm("searchTask")}>
                     <SearchIcon />
                 </IconButton>
             </Tooltip>

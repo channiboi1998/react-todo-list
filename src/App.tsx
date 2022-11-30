@@ -9,23 +9,19 @@ import AddTaskForm from './features/tasks/AddTaskForm';
 
 function App() {
 
+    const [selectedFilter, setSelectedFilter] = useState("all");
     const [selectedForm, setSelectedForm] = useState("addTask");
-
-    const handleChangeForm = (form: string) => {
-        setSelectedForm(form);
-    }
+    const [searchValue, setSearchValue] = useState("");
 
     return (
         <div className="app-container">
             <h1>Things to do</h1>
-            {selectedForm === "addTask" ? <AddTaskForm /> : <SearchForm />}
-            <TasksList />
+            {selectedForm === "addTask" ? <AddTaskForm /> : <SearchForm setSearchValue={setSearchValue} />}
+            <TasksList searchValue={searchValue} selectedFilter={selectedFilter} />
             <Grid container>
-                <Actions changeForm={handleChangeForm} />
-                <Grid className="grid-center" item lg={6} md={6} xs={6}>
-                     1 items done, 0 items left
-                </Grid>
-                <ListFilters />
+                <Actions setSelectedForm={setSelectedForm} />
+                <Grid className="grid-center" item lg={6} md={6} xs={6}></Grid>
+                <ListFilters selectedFilter={selectedFilter} setSelectedFilter={setSelectedFilter} />
             </Grid>
         </div>
     );
